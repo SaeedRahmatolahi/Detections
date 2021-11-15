@@ -1,3 +1,3 @@
 # Detections
 
-A description of this package.
+Detecting Texts and Persons from Images 
