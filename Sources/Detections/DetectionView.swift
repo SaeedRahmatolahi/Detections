@@ -65,20 +65,14 @@ class DetectionView: UIView {
             return
         }
         
-        if (captureSession.canAddInput(videoInput)) {
-            captureSession.addInput(videoInput)
+        captureSession.canAddInput(videoInput) ?
+        captureSession.addInput(videoInput) : failedCamera()
             
-        } else {
-            failed()
-            return
-        }
         
-        if captureSession.canAddOutput(stillImageOutput) {
-            captureSession.addOutput(stillImageOutput)
-        } else {
-            failed()
-            return
-        }
+        
+        captureSession.canAddOutput(stillImageOutput) ?
+        captureSession.addOutput(stillImageOutput) : failedCamera()
+        
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = self.layer.bounds
@@ -96,6 +90,11 @@ class DetectionView: UIView {
             }
         }
         self.didLunchScreen()
+    }
+    
+    func failedCamera() {
+        failed()
+        return
     }
     
     
