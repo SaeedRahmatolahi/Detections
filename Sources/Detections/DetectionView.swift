@@ -29,12 +29,6 @@ class DetectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        self.initCamera()
-    }
-    
-    
     /// stop or resume scanner
     /// - Parameter isStop: stop scanner or resume scanner (true : stop scanner)
     func scanStopResume(_ isStop : Bool) {
