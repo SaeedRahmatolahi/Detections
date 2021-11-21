@@ -20,11 +20,11 @@ class DetectionVC: DetectionViewController , detectionProtocol {
 }
 ```
 
-you can increase the detection level or language correction by using the coide below (these parameters will get boolean but as in the package there is a boolean extension you can use `.yes` or `.no`)
+you can increase the detection level or language correction by using the code below
 
 ```swift
-    self.fastRecognition = .yes
-    self.autoCorrection = .yes
+    self.fastRecognition = true
+    self.autoCorrection = true
 ```
 
 by adding the `detectionDelegate` you will have two functions which one of them is optional 

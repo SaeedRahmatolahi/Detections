@@ -87,7 +87,7 @@ public class FaceDetectionView: UIView {
             self.captureSession.startRunning()
         }
         
-        if (captureSession?.isRunning == .no) {
+        if (captureSession?.isRunning == false) {
             DispatchQueue.main.async {
                 self.captureSession.startRunning()
             }
@@ -98,7 +98,7 @@ public class FaceDetectionView: UIView {
     
     /// enable or disable the auto focus
     /// - Parameter isAutoFocus: isAutoFocus makes it enable
-    func autoFocus(_ isAutoFocus : Bool = .yes) {
+    func autoFocus(_ isAutoFocus : Bool = true) {
         guard let videoCaptureDevice = AVCaptureDevice.default(for:.video) else { return }
         if isAutoFocus {
             DispatchQueue.main.async {

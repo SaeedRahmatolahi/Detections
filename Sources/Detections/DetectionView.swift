@@ -16,8 +16,8 @@ class DetectionView: UIView {
     var stillImageOutput: AVCapturePhotoOutput!
     var stopAfterScan = true
     public weak var detectionViewDelegate : detectionViewProtocol?
-    var fastRecognition : Bool = .no
-    var autoCorrection : Bool = .no
+    var fastRecognition : Bool = false
+    var autoCorrection : Bool = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = frame
@@ -84,7 +84,7 @@ class DetectionView: UIView {
             self.captureSession.startRunning()
         }
         
-        if (captureSession?.isRunning == .no) {
+        if (captureSession?.isRunning == false) {
             DispatchQueue.main.async {
                 self.captureSession.startRunning()
             }
@@ -100,7 +100,7 @@ class DetectionView: UIView {
     
     /// enable or disable the auto focus
     /// - Parameter isAutoFocus: isAutoFocus makes it enable
-    func autoFocus(_ isAutoFocus : Bool = .yes) {
+    func autoFocus(_ isAutoFocus : Bool = true) {
         guard let videoCaptureDevice = AVCaptureDevice.default(for:.video) else { return }
         if isAutoFocus {
             DispatchQueue.main.async {

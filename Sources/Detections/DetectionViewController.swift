@@ -23,8 +23,8 @@ open class DetectionViewController: UIViewController, detectionViewProtocol {
     private var getImage = UIButton(frame: CGRect(x: (.screenWidth - 50)/2, y: .screenHeight - .safeAreas - 150 , width: 50, height: 50))
     private var detectionView = DetectionView(frame: CGRect(x: 0, y: 0, width: .screenWidth, height: .screenHeight))
     weak public var detectionDelegate : detectionProtocol?
-    public var fastRecognition : Bool = .no
-    public var autoCorrection : Bool = .no
+    public var fastRecognition : Bool = false
+    public var autoCorrection : Bool = false
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.setDelegates()
